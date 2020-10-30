@@ -40,7 +40,10 @@ class App extends Component {
         if (this.state.tileData[i].id === 0) {
           blankLoc = i;
           console.log(this.state.tileData[i].currRow, this.state.tileData[tileObj.id].currRow);
-
+          // if(currRow and currCol is one less or one more than blankTile)
+          // if true, swap
+          //else don't swap
+          // if the absolute value of the row of blankLoc - the row of the target =1 and same for col, valid move
           if ((Math.abs(this.state.tileData[i].currRow - this.state.tileData[tileObj.id].currRow) === 1 &&
             Math.abs(this.state.tileData[i].currCol - this.state.tileData[tileObj.id].currCol) === 1)) {
             console.log("oneDifference");
@@ -54,7 +57,6 @@ class App extends Component {
 
       }
 
-
       tempArr[blankLoc].id = tileObj.id;
       tempArr[targetLoc].id = 0;
       this.setState({
@@ -62,100 +64,75 @@ class App extends Component {
       })
     }
   }
-    // if(currRow and currCol is one less or one more than blankTile)
-    // swap with blankTile
-    // in same row = id is one less or one more
-    // in same col = id is one less or one more
-    // if true, swap
-    //else don't swap
-    // set new state
-    // swap tiles
+  // if(currRow and currCol is one less or one more than blankTile)
+  // swap with blankTile
+  // in same row = id is one less or one more
+  // in same col = id is one less or one more
+  // if true, swap
+  //else don't swap
+  // set new state
+  // swap tiles
 
 
 
-    // console.log(blankLoc);
-    // console.log(targetLoc);
-    // console.log(tileObj.id);
-    //}
+  // console.log(blankLoc);
+  // console.log(targetLoc);
+  // console.log(tileObj.id);
+  //}
+
+
+  winState() {
+    // make win state when ids = values
+    // tileData: tileData
+  }
+
+  // checkWin
+  checkWin(e) {
+    // const winArr = this.state.tileData.id
+    // const tempArr = this.state.winPosition
+
+    // const winPosition = (element) => element.id == winArr;
+
+
+  }
+  // get arr of items
+  // set winPosition
+  // loop through
+  // look at index of
+  // check each index
 
 
 
+  // setWinState
+  // value: winState
 
+  // assert moveTile
 
+  // devMode = true
 
-
-
-    // determine if neighbor is in same row and column
-
-
-    // if(currRow and currCol is one less or one more than blankTile)
-    // swap with blankTile
-    // 
-    // check if next to blankTile
-    // in same row, id is one less or one more
-    // in same col, id is one less or one more
-    // if true, swap
-    //else don't swap
-
-
-
-
-
-
-
-
-
-
-    winState() {
-      // tileData: tileData
-    }
-
-    // checkWin
-    checkWin(e) {
-      // const winArr = this.state.tileData.id
-      // const tempArr = this.state.winPosition
-
-      // const winPosition = (element) => element.id == winArr;
-
-
-    }
-    // get arr of items
-    // set winPosition
-    // loop through
-    // look at index of
-    // check each index
-
-
-
-    // setWinState
-    // value: winState
-
-    // assert moveTile
-
-    // devMode = true
-
-    // randomState
-    handleReset(e) {
-
-    }
-
-    // winState
-
-
-    render() {
-      return (
-
-        <>
-          <h1>Sliding Puzzle</h1>
-          <Grid key={this.id} tileData={this.state.tileData} onTileClicked={this.tileClick} />
-          <button onClick={this.handleReset} > Reset </button>
-        </>
-
-
-      )
-    }
+  // randomState
+  handleReset(e) {
+    // shuffle state
 
   }
 
+  // winState
 
-  export default App;
+
+  render() {
+    return (
+
+      <>
+        <h1>Sliding Puzzle</h1>
+        <Grid key={this.id} tileData={this.state.tileData} onTileClicked={this.tileClick} />
+        <button onClick={this.handleReset} > Reset </button>
+      </>
+
+
+    )
+  }
+
+}
+
+
+export default App;
